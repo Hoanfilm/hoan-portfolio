@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/* 1. Importamos tu fuente local */
+@font-face {
+  font-family: 'Igoe';
+  src: url('/fonts/igoe.woff2') format('woff2'); 
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Le decimos a Tailwind que use Igoe como fuente principal */
+@theme {
+  --font-sans: 'Igoe', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+/* 3. Estilos Base y Scroll Suave */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-black text-[#F4F4F0];
+  }
+}
+
+/* 4. Grid Masonry para Fotografía Análoga */
+.masonry-grid {
+    column-gap: 2rem;
+    columns: 1;
+}
+
+@media (min-width: 768px) { 
+    .masonry-grid { columns: 2; } 
+}
+
+@media (min-width: 1024px) { 
+    .masonry-grid { columns: 3; } 
+}
+
+.masonry-item {
+    break-inside: avoid;
+    margin-bottom: 2rem;
+}
